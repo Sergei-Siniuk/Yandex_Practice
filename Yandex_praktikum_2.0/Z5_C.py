@@ -24,3 +24,4 @@ if len(cabinet_list) == 0 or (len(cabinet_list) == 1 and 0 in cabinet_list):
 else:
     print(len(list(filter(lambda x: x!= 0,cabinet_list))))
     print(*cabinet_list)
+print("TEST")
