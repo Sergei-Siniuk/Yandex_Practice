@@ -1,13 +1,13 @@
 def slovik(lst: list) -> dict:
     sort_dict = {}
-    for index,value in enumerate(lst):
+    for index,value in enumerate(lst[1:]):
         sort_dict[int(value)] = sort_dict.setdefault(int(value),index)
     return sort_dict
 
 S = int(input())
-A = slovik(input().split()[1:])
-B = slovik(input().split()[1:])
-C = slovik(input().split()[1:])
+A = slovik(input().split())
+B = slovik(input().split())
+C = slovik(input().split())
 
 break_ = False
 
