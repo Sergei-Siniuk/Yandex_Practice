@@ -1,25 +1,27 @@
+def slovik(lst: list) -> dict:
+    sort_dict = {}
+    for index,value in enumerate(lst):
+        sort_dict[int(value)] = sort_dict.setdefault(int(value),index)
+    return sort_dict
+
 S = int(input())
-A = list(map(int, (input()).split()))[1:]
-B = list(map(int, (input()).split()))[1:]
-C = list(map(int, (input()).split()))[1:]
+A = slovik(input().split()[1:])
+B = slovik(input().split()[1:])
+C = slovik(input().split()[1:])
 
 break_ = False
-iter = 0
 
-
-for i_index, i_value in enumerate(A):
-    if i_value>S:
+for key_A in A:
+    if key_A > S:
         continue
-    for j_index, j_value in enumerate(B):
-        if i_value + j_value > S:
+    for key_B in B:
+        if key_A+key_B > S:
             continue
-        iter+=1
-        if (S - i_value - j_value) in set(C):
-            print(i_index, j_index, C.index(S - i_value - j_value))
+        if (S - key_A - key_B) in C:
+            print(A[key_A],B[key_B],C[S - key_A - key_B])
             break_ = True
             break
     if break_:
         break
 else:
     print("-1")
-print(iter)
